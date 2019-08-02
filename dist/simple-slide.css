@@ -1,0 +1,1 @@
+[data-slide]{position:relative}[data-slide]>*{position:absolute;top:0;opacity:0}[data-slide]>.active{position:relative;opacity:1;transition:opacity .5s}
