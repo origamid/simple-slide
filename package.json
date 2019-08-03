@@ -1,5 +1,5 @@
 {
-  "name": "slide",
+  "name": "simple-slide",
   "version": "1.0.0",
   "description": "",
   "main": "gulpfile.js",
@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/origamid/slide.git"
+    "url": "git+https://github.com/origamid/simple-slide.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/origamid/slide/issues"
+    "url": "https://github.com/origamid/simple-slide/issues"
   },
-  "homepage": "https://github.com/origamid/slide#readme",
+  "homepage": "https://github.com/origamid/simple-slide#readme",
   "devDependencies": {
     "css-loader": "^3.0.0",
     "optimize-css-assets-webpack-plugin": "^5.0.3",
