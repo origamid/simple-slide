@@ -5,7 +5,9 @@ export default class SimpleSlide {
       auto: config.auto ? config.auto : true,
       nav: config.nav ? config.nav : false,
       time: config.time ? config.time : 5000,
-    }
+      pauseOnHover: config.pauseOnHover ? config.pauseOnHover : false
+    };
+    this.pause = false;
     this.activeClass = "active";
     this.slide = document.querySelector(`[data-slide="${this.config.slide}"]`);
     if (this.slide) {
@@ -31,10 +33,18 @@ export default class SimpleSlide {
       navItems[index].classList.add(this.activeClass);
     }
   }
+  pauseOnHover() {
+    this.items.forEach(item => {
+      item.addEventListener("mouseenter", () => (this.pause = true));
+      item.addEventListener("mouseleave", () => (this.pause = false));
+    });
+  }
   rotateSlide() {
-    const activeSlide = this.slide.querySelector(".active");
-    const nextSlide = activeSlide.nextElementSibling;
-    this.activateSlide(nextSlide);
+    if (!this.pause) {
+      const activeSlide = this.slide.querySelector(".active");
+      const nextSlide = activeSlide.nextElementSibling;
+      this.activateSlide(nextSlide);
+    }
   }
   initAutoSlide() {
     clearInterval(this.autoSlide);
@@ -44,7 +54,7 @@ export default class SimpleSlide {
     this.nav = document.createElement("div");
     this.nav.setAttribute("data-slide-nav", this.config.slide);
     this.items.forEach((item, i) => {
-      this.nav.innerHTML += `<button data-slide-item="${i}">${i + 1}</button>`
+      this.nav.innerHTML += `<button data-slide-item="${i}">${i + 1}</button>`;
     });
     this.slide.after(this.nav);
   }
@@ -57,7 +67,7 @@ export default class SimpleSlide {
     const navItems = [...this.nav.children];
     navItems.forEach(item => {
       item.addEventListener("click", this.handleNavigationEvent);
-    })
+    });
   }
   initNavigation() {
     this.createNavigation();
@@ -69,12 +79,10 @@ export default class SimpleSlide {
   }
   init() {
     this.bindFunctions();
-    if (this.config.auto) {
-      this.initAutoSlide();
-    }
-    if (this.config.nav) {
-      this.initNavigation();
-    }
+    if (this.config.auto) this.initAutoSlide();
+    if (this.config.nav) this.initNavigation();
+    if (this.config.pauseOnHover) this.pauseOnHover();
+
     this.activateSlide(this.items[0]);
   }
 }

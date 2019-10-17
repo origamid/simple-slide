@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Simple Slide Example</title>
+  <link rel="stylesheet" href="../css/simple-slide.css">
+</head>
+
+<body>
+  <ul data-slide="principal">
+    <li>Slide 1
+      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the.</p>
+    </li>
+    <li>Slide 2
+      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the.</p>
+    </li>
+    <li>Slide 3
+      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the.</p>
+    </li>
+  </ul>
+
+  <script type="module">
+    import SimpleSlide from "../js/simple-slide.js";
+    new SimpleSlide({
+      slide: "principal", // nome do atributo data-slide="principal"
+      nav: true, // se deve ou não mostrar a navegação
+      auto: true, // se o slide deve passar automaticamente
+      time: 5000, // tempo de transição dos slides
+      pauseOnHover: true,
+    });
+  </script>
+
+</body>
+
+</html>
