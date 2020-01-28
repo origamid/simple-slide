@@ -34,7 +34,7 @@ o slide com new SimpleSlide() -->
 ```
 
 ```css
-/* 5 Adicione o CSS Essêncial abaixo */
+/* 5 Adicione o CSS Essencial abaixo */
 [data-slide] {
   position: relative;
 }
