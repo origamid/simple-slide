@@ -11,11 +11,11 @@ Slide simples de transição com navegação.
 // 3 - Inicie a classe do slide:
 
 new SimpleSlide({
-  slide: "principal", // nome do atributo data-slide="principal"
+  slide: 'principal', // nome do atributo data-slide="principal"
   nav: true, // se deve ou não mostrar a navegação
   auto: true, // se o slide deve passar automaticamente
   time: 5000, // tempo de transição dos slides
-  pauseOnHover: true // pausa a transição automática
+  pauseOnHover: true, // pausa a transição automática
 });
 ```
 
@@ -47,6 +47,7 @@ o slide com new SimpleSlide() -->
   position: relative;
   opacity: 1;
   transition: opacity 500ms;
+  z-index: 1;
 }
 
 /* 6 CSS recomendado para a navegação */
